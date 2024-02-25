@@ -117,3 +117,20 @@ else
     Console.Write("Число не соответствует заданному диапазону!");    
 }
 */
+// Второй способ реализации Задача 4.
+/*
+Console.WriteLine("Введите натуральное число N:");
+int number = Convert.ToInt32(Console.ReadLine());
+
+string digits = "";
+int newNumber = number;
+
+while (newNumber > 0)
+{
+    int digit = newNumber % 10;
+    digits = digit + (digits == "" ? "" : ",") + digits;
+    newNumber /= 10;
+}
+
+Console.WriteLine($"{number} => {digits}");
+*/
