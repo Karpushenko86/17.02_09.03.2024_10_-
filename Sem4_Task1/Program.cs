@@ -25,7 +25,7 @@ void PrintArray(int[] array)
     {
         Console.Write($"{array[i]} ");
     }
-    Console.Write($"{array.Length - 1}] ");
+    Console.Write($"{array[array.Length - 1]}] ");
 }
 
 int CountPrimeNumbers(int[] array)
