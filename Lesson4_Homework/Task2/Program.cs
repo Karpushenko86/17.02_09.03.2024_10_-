@@ -51,4 +51,8 @@ if (int.TryParse(Console.ReadLine(), out int size))
 
     Console.Write(CountEvenNumbers(array));
 }
+else
+{
+    Console.WriteLine("Некорректный ввод!");
+}
 
