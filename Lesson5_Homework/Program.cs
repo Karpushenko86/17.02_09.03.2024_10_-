@@ -142,7 +142,7 @@ void PrintArray(int[] array)
     Console.Write($"{array[array.Length - 1]}]\n");
 }
 
-int[,] matrix = CreateMatrixRndInt(5, 5, 1, 10);
+int[,] matrix = CreateMatrixRndInt(3, 3, 1, 10);
 PrintMatrix(matrix);
 
 Console.WriteLine("\n=>\n");
