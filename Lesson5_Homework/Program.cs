@@ -15,29 +15,29 @@ int[,] DeleteRowInMatrix(int[,] matrix, int[] minIndex)      // Возвраща
     int rows = matrix.GetLength(0) - 1;
     int columns = matrix.GetLength(1);
 
-    int[,] localMatrix = new int[rows, columns];
+    int[,] localMatrix = new int[rows, columns];        // Выделяем память под матрицу с учетом удаления строки 
 
     int k = 0;
     for (int i = 0; i < rows + 1; i++)
     {
-        if (i == rows && i == minIndex[0])
+        if (i == rows && i == minIndex[0])              // Если строка последний
         {
             break;
         }
 
-        if (i == 0 && i == minIndex[0])
+        if (i == 0 && i == minIndex[0])                 // Если строка вначале
         {
             i++;
             k++;
         }
 
-        if (i > 0 && i < rows && i == minIndex[0])
+        if (i > 0 && i < rows && i == minIndex[0])      // Если строка посередине
         {
             i++;
             k++;
         }       
 
-        for (int j = 0; j < columns; j++)
+        for (int j = 0; j < columns; j++)               // Запись по элементам столбца (Важно!!!)
         {
             localMatrix[i - k, j] = matrix[i, j];
         }
@@ -51,7 +51,7 @@ int[,] DeleteColumnInMatrix(int[,] matrix, int[] minIndex)   // Возвраща
     int rows = matrix.GetLength(0);
     int columns = matrix.GetLength(1) - 1;
 
-    int[,] localMatrix = new int[rows, columns];
+    int[,] localMatrix = new int[rows, columns];        // Выделяем память под матрицу с учетом удаления столбца 
 
     int k = 0;
     for (int j = 0; j < columns + 1; j++)
@@ -73,7 +73,7 @@ int[,] DeleteColumnInMatrix(int[,] matrix, int[] minIndex)   // Возвраща
             k++;
         }       
 
-        for (int i = 0; i < rows; i++)                  // Запись по элементам строки
+        for (int i = 0; i < rows; i++)                  // Запись по элементам строки (Важно!!!)
         {
             localMatrix[i, j - k] = matrix[i, j];
         }
@@ -85,8 +85,8 @@ int[,] DeleteColumnInMatrix(int[,] matrix, int[] minIndex)   // Возвраща
 int[] FindIndexOfMinInMatrix(int[,] matrix)             // Возвращает Массив индексов (строка, столбец) минимального элемента Матрицы
 {
     int[] minIndex = new int[2];
-    minIndex[0] = 0;
-    minIndex[1] = 0;
+    minIndex[0] = 0;    // Ячейка массива для хранения индекса строки
+    minIndex[1] = 0;    // Ячейка массива для хранения индекса столбца
     int min = matrix[0, 0];
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
