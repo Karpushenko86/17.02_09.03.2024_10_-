@@ -12,17 +12,34 @@
 
 int[,] DeleteRowInMatrix(int[,] matrix, int[] minIndex)      // Возвращает Матрицу без строки
 {
-    // 3х3 => 2x3
     int rows = matrix.GetLength(0) - 1;
     int columns = matrix.GetLength(1);
 
     int[,] localMatrix = new int[rows, columns];
 
-    for (int i = 0; i < rows; i++)
+    int k = 0;
+    for (int i = 0; i < rows + 1; i++)
     {
+        if (i == rows && i == minIndex[0])
+        {
+            break;
+        }
+
+        if (i == 0 && i == minIndex[0])
+        {
+            i++;
+            k++;
+        }
+
+        if (i > 0 && i < rows && i == minIndex[0])
+        {
+            i++;
+            k++;
+        }       
+
         for (int j = 0; j < columns; j++)
         {
-            localMatrix[i, j] = matrix[];   // Надо попробовать что-то сделать с индексами matrix
+            localMatrix[i - k, j] = matrix[i, j];
         }
     }
 
@@ -31,17 +48,34 @@ int[,] DeleteRowInMatrix(int[,] matrix, int[] minIndex)      // Возвраща
 
 int[,] DeleteColumnInMatrix(int[,] matrix, int[] minIndex)   // Возвращает Матрицу без колонны
 {
-    // 2х3 => 2x2
     int rows = matrix.GetLength(0);
     int columns = matrix.GetLength(1) - 1;
 
     int[,] localMatrix = new int[rows, columns];
 
-    for (int i = 0; i < rows; i++)
-    {
-        for (int j = 0; j < columns; j++)
+    int k = 0;
+    for (int j = 0; j < columns + 1; j++)
+    {     
+        if (j == columns && j == minIndex[1])           // Если столбец последний
         {
-            localMatrix[i, j] = matrix[];   // Надо попробовать что-то сделать с индексами matrix
+            break;
+        }
+
+        if (j == 0 && j == minIndex[1])                 // Если столбец вначале
+        {
+            j++;
+            k++;
+        }
+
+        if (j > 0 && j < columns && j == minIndex[1])   // Если столбец посередине
+        {
+            j++;
+            k++;
+        }       
+
+        for (int i = 0; i < rows; i++)                  // Запись по элементам строки
+        {
+            localMatrix[i, j - k] = matrix[i, j];
         }
     }
 
@@ -105,10 +139,10 @@ void PrintArray(int[] array)
     {
         Console.Write($"{array[i]} ");
     }
-    Console.Write($"{array[array.Length - 1]}] ");
+    Console.Write($"{array[array.Length - 1]}]\n");
 }
 
-int[,] matrix = CreateMatrixRndInt(3, 3, 1, 10);
+int[,] matrix = CreateMatrixRndInt(5, 5, 1, 10);
 PrintMatrix(matrix);
 
 Console.WriteLine("\n=>\n");
@@ -116,3 +150,12 @@ Console.WriteLine("\n=>\n");
 int[] array = FindIndexOfMinInMatrix(matrix);
 PrintArray(array);
 
+Console.WriteLine("\n=>\n");
+
+matrix = DeleteRowInMatrix(matrix, array);
+// PrintMatrix(matrix);
+
+// Console.WriteLine("\n=>\n");
+
+matrix = DeleteColumnInMatrix(matrix, array);
+PrintMatrix(matrix);
