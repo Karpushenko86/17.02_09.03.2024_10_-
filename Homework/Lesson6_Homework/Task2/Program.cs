@@ -4,8 +4,6 @@
 // Пример
 // “aBcD1ef!-” => “abcd1ef!-” 
 
-using System;
-
 static string IsMessageString(string? input)                    // Проверка на вхождение пустой строки
 {
     if (input is not null)
