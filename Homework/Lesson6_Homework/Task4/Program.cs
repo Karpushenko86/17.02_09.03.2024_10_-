@@ -15,7 +15,7 @@ static string IsMessageString(string? message)              // Проверка 
     return "";
 }
 
-static string[] GetReversedString(string str)               // Перевод строки в массив строк с заменной начальных и конечных элементы между собой (разворот элементов массива)
+static string[] GetReversedString(string str)               // Перевод строки в массив строк с заменной начальных и конечных элементов между собой (разворот элементов массива)
 {                                                           
     string[] strArray = str.Split();
     
@@ -34,7 +34,7 @@ void PrintArray(string[] array)
 {
     for (int i = 0; i < array.Length - 1; i++)
     {
-        Console.Write($"{array[i]}");
+        Console.Write($"{array[i]} ");
     }
     Console.Write($"{array[array.Length - 1]}");
 }
