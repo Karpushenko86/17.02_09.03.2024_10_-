@@ -15,7 +15,7 @@ static string IsMessageString(string? message)              // Проверка 
     return "";
 }
 
-static string[] GetReversedString(string str)               // Перевод строки в массив строк с заменной начальных и конечных элементов между собой (разворот элементов массива)
+static string[] GetReversedStrArray(string str)               // Перевод строки в массив строк с заменной начальных и конечных элементов между собой (разворот элементов массива)
 {                                                           
     string[] strArray = str.Split();
     
@@ -30,16 +30,19 @@ static string[] GetReversedString(string str)               // Перевод с
     return strArray;
 }
 
-void PrintArray(string[] array)
-{
-    for (int i = 0; i < array.Length - 1; i++)
+static string GetStringFromStrArray(string[] strArray)         // Формирование строки из массива строк (получаем строку с пробелами)
+{                                                           
+    string result = string.Empty;
+    for (int i = 0; i < strArray.Length; i++)
     {
-        Console.Write($"{array[i]} ");
+        result += strArray[i] + " ";
     }
-    Console.Write($"{array[array.Length - 1]}");
+
+    return result;
 }
 
 Console.Write("Введите строку, состоящую из слов, разделенных пробелами: ");
 string str = IsMessageString(Console.ReadLine());
-string[] strArray = GetReversedString(str);
-PrintArray(strArray);
+string[] strArray = GetReversedStrArray(str);
+string result = GetStringFromStrArray(strArray);
+Console.Write($"{str} => {result}");
