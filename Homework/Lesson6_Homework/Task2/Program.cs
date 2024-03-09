@@ -4,11 +4,11 @@
 // Пример
 // “aBcD1ef!-” => “abcd1ef!-” 
 
-static string IsMessageString(string? input)                    // Проверка на вхождение пустой строки
+static string IsMessageString(string? message)                    // Проверка на вхождение пустой строки
 {
-    if (input is not null)
+    if (message is not null)
     {
-        return input;
+        return message;
     }
 
     return "";
