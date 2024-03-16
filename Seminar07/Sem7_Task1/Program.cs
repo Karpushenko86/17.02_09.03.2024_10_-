@@ -10,7 +10,7 @@
 
 void NaturalNumbers(int num)
 {
-    if(num == 0) return;
+    if (num == 0) return;
 
     NaturalNumbers(num - 1);
 
