@@ -31,10 +31,10 @@ void ShowNaturalNumbers(int num1, int num2)
     }
 }
 
-Console.Write("Введите значение натуральное число M: ");
+Console.Write("Введите числовое значение M: ");
 int M = Convert.ToInt32(Console.ReadLine());
 
-Console.Write("Введите значение натуральное число N: ");
+Console.Write("Введите числовое значение N: ");
 int N = Convert.ToInt32(Console.ReadLine());
 
 Console.Write($"M = {M}; N = {N} -> ");
