@@ -10,11 +10,11 @@
 // “World” => W r l d
 // “Hello world!” => H l l w r l d
 
-void ShowConsonantsInString(string str)
+void ShowConsonantsInString(string? str)
 {
     string vowels = "eyuioaj";
 
-    if (str.Length == 0) return;
+    if (str.Length == 0 || str == string.Empty) return;
 
     if (!vowels.Contains(str[0])) 
     {
@@ -25,7 +25,7 @@ void ShowConsonantsInString(string str)
 }
 
 Console.Write("Введите строку, содержащую латинские буквы: ");
-string str = Console.ReadLine();
+string? str = Console.ReadLine();
 
 Console.Write($"“{str}” => ");
 ShowConsonantsInString(str);
