@@ -39,7 +39,7 @@ void PrintArrayReqursion(int[] array, int count)
 
     if (count == 0 && array.Length > 1)         // Условие для первого эл. массива
     {
-        Console.Write($"{array[count]}asd, ");
+        Console.Write($"{array[count]}, ");
         return;
     }
 
