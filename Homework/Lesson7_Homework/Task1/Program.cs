@@ -9,44 +9,47 @@
 
 void ShowNaturalNumbers(int num1, int num2)
 {
-    if (num1 == num2 + 1) return;
+    int temp = 1;                               // Переменная для контроля вывода натуральных чисел 
 
-    if (num1 < 1 && num2 < 1) 
+    if (num1 < 1 && num2 < 1) return;           // Терминальная ветка для рекурсии при обходе отрицательного диапазона
+
+    if (num1 == num2)                           // Терминальная ветка для рекурсии при достижении границы диапазона
     {
-        // Проверка диапазона на не соблюдение условия задачи
-        Console.WriteLine("В заданном диапазоне нету натуральных чисел!");
+        Console.Write($"{num1} ");
         return;
     }
+    
+    if (num1 < num2 && num1 > 0)                // Вывод натруальных чисел, при проходе с "-" на "+", наименьшее до наибольшего
+    {
+        Console.Write($"{num1} ");       
+    }
 
-    if (num1 > 0)
+    if (num1 > num2 && num1 > 0)                // Вывод натруальных чисел, при проходе с "+" на "-", наибольшее до наименьшего
     {
-        // Если число не отрицательное, продолжаем вызов рекурсии с выводом
         Console.Write($"{num1} ");
-        ShowNaturalNumbers(num1 + 1, num2);
+        temp = -1;
     }
-    else                
-    {
-        // Если число отрицательное, продолжаем вызов рекурсии без вывода
-        ShowNaturalNumbers(num1 + 1, num2);
-    }
+
+    ShowNaturalNumbers(num1 + temp, num2);      // Рекурсивная ветка
 }
 
 Console.Write("Введите числовое значение M: ");
-int M = Convert.ToInt32(Console.ReadLine());
+int m = Convert.ToInt32(Console.ReadLine());
 
 Console.Write("Введите числовое значение N: ");
-int N = Convert.ToInt32(Console.ReadLine());
+int n = Convert.ToInt32(Console.ReadLine());
 
-Console.Write($"M = {M}; N = {N} -> ");
+Console.Write($"M = {m}; N = {n} -> ");
 
-if (M > N)  
+if (m < 1 && n < 1)
 {
-    ShowNaturalNumbers(N, M);
+    Console.WriteLine("В заданном диапазоне нету натуральный чисел!");
 }
 else
 {
-    ShowNaturalNumbers(M, N);
+    ShowNaturalNumbers(m, n);
 }
+
 
 
 
